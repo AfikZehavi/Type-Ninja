@@ -1,0 +1,16 @@
+.main-header {
+    color: #b1b19d;
+    gap: 3rem;
+
+    .logo {
+        gap: 1rem;
+    }
+
+    .header-btns {
+        gap: 1.5rem;
+
+        span {
+            cursor: pointer;
+        }
+    }
+}

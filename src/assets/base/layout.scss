@@ -1,0 +1,16 @@
+.App {
+    // align-items: center;
+    min-height: 100vh;
+    justify-content: space-between;
+  }
+
+  #root {
+    grid-column: 2;
+  }
+
+  body {
+    display: grid;
+    grid-template-columns: auto minmax(0,1250px) auto;
+    background: #2F3338;
+    cursor: default;
+  }

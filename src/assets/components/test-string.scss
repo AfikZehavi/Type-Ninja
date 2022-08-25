@@ -1,0 +1,17 @@
+.word {
+    /* width: 50px; */
+    display: inline-block;
+    margin-right: 10px;
+    letter-spacing: 1px;
+    font-size: 25px;
+    font-weight: 100;
+}
+
+.correct {
+    color: white;
+}
+
+.incorrect {
+    color: red;
+    text-decoration: underline;
+}
