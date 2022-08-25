@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Type-Ninja/static/css/main.07dfce20.css",
+    "main.js": "/Type-Ninja/static/js/main.e1c4cb49.js",
+    "index.html": "/Type-Ninja/index.html",
+    "main.07dfce20.css.map": "/Type-Ninja/static/css/main.07dfce20.css.map",
+    "main.e1c4cb49.js.map": "/Type-Ninja/static/js/main.e1c4cb49.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.07dfce20.css",
+    "static/js/main.e1c4cb49.js"
+  ]
+}
