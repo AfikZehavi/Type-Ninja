@@ -1,0 +1,41 @@
+.score-container {
+    color: $clr-txt;
+    justify-content: center !important;
+    gap: 10rem;
+}
+
+.score-main {
+    gap: 5rem;
+}
+
+
+.wpm-container,
+.accuarcy-container {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    justify-content: space-between;
+}
+
+.shown {
+    transform: translateY(0);
+}
+
+.play-again-container {
+    height: 3rem;
+
+    .play-again-btn {
+        animation: bounce-in 2s ease;
+        background: #d6d2bc;
+        border: none;
+        border-radius: 15px;
+        font-size: 19px;
+        color: #2f3338;
+        padding: 5px;
+        width: 7rem;
+        height: 3rem;
+
+        span {
+            font-weight: 600;
+        }
+    }
+}

@@ -9,19 +9,22 @@ let arrayString
 let lettersArray
 
 
-const StringDisplay = () => {
+const StringDisplay = ({ isGameOn, isFirstPress, setGameOn, setFirstPress, handleReload, setIsGameOver, timer }) => {
 
-
-    const [currWord, setCurrWord] = useState(0)
-    const [isGameOn, setGameOn] = useState(false)
     const [string, setString] = useState(randomWords(50))
+    const [currWord, setCurrWord] = useState(0)
     const [caretPos, setCaretPos] = useState({
         top: '2px',
         left: '.5px'
     })
 
     const inputRef = useRef()
-
+    let timeOutId
+    const callForWPM = () => {
+        timeOutId = setTimeout(() => {
+            globalFunctions.countWPM()
+        }, 60000)
+    }
 
     const updatePos = (isNextWord = false) => {
         let newPos
@@ -44,17 +47,30 @@ const StringDisplay = () => {
                 top: newPos.top,
                 behavior: 'smooth',
             })
-
+            setString(
+                [...string,
+                ...randomWords(10)]
+            )
         }
     }
-
 
     const handleInput = (event) => {
         event.preventDefault()
 
-        if (!isGameOn) {
-            setGameOn(true)
+        if (!isGameOn && !isFirstPress) {
+            globalFunctions.setAccuarcy()
+            clearTimeout(timeOutId)
+            globalFunctions.countWPM(true)
+            setIsGameOver(true)
+            return
         }
+        if (!isGameOn && isFirstPress) {
+            setGameOn(true)
+            setFirstPress(false)
+            callForWPM()
+        }
+
+
 
         arrayString = stringContainerEl.querySelectorAll('.word')
         lettersArray = arrayString[currWord].querySelectorAll('.letter')
@@ -71,9 +87,11 @@ const StringDisplay = () => {
                 characterSpan.classList.add('correct')
                 characterSpan.classList.remove('incorrect')
 
+
             } else {
                 characterSpan.classList.remove('correct')
                 characterSpan.classList.add('incorrect')
+
 
             }
         })
@@ -85,8 +103,9 @@ const StringDisplay = () => {
 
     const handleKeyUp = async (event) => {
         event.preventDefault()
-        arrayString = stringContainerEl.querySelectorAll('.word')
+        if (!isGameOn && !isFirstPress) return
 
+        arrayString = stringContainerEl.querySelectorAll('.word')
 
         if (event.key === ' ' && currWord < arrayString.length - 1) {
 
@@ -98,12 +117,16 @@ const StringDisplay = () => {
         }
         inputRef.current.focus()
     }
-    
+
 
     useEffect(() => {
         document.addEventListener("keyup", handleKeyUp)
         document.addEventListener("click", () => {
-            inputRef.current.focus()
+            // inputRef.current.focus()
+            const input = document.querySelector('.wordsInput')
+            if (input) {
+                input.focus()
+            }
         })
         inputRef.current.focus();
 
@@ -118,12 +141,19 @@ const StringDisplay = () => {
     }, [currWord])
 
     return (
-        <div className="string-container">
-            {!isGameOn && <div className="caret caretHold" style={caretPos}></div>}
-            {isGameOn && <div className="caret" style={caretPos}></div>}
-            <input type="text" name="wordsInput" className="wordsInput" autoFocus id="wordsInput" onInput={handleInput} ref={inputRef} />
-            <TestString string={string} />
-        </div>
+        <>
+            <div className="string-container d-flex flex-column">
+                {!isGameOn && <div className="caret caretHold" style={caretPos}></div>}
+                {isGameOn && <div className="caret" style={caretPos}></div>}
+                <input type="text" autoCapitalize="off" autoComplete="off" autoCorrect="off" list="autocompleteOff" name="wordsInput" className="wordsInput" autoFocus id="wordsInput" onInput={handleInput} ref={inputRef} />
+                <TestString string={string} />
+            </div>
+            {!isFirstPress && <button className="clean-btn rld-btn" onClick={handleReload}><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" className="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                <path fillRule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
+                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
+            </svg></button>}
+
+        </>
     )
 }
 

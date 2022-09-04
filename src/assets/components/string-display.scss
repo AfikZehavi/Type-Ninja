@@ -2,7 +2,7 @@
     color: #8E8D83;
     z-index: 10;
     height: 7rem;
-    width: 61rem;
+    width: 100%;
     text-align: left;
     overflow: hidden;
     position: relative;
@@ -45,4 +45,17 @@
     transform: translate(-50%, -50%);
     z-index: 0;
     visibility: hidden;
+}
+.test-container {
+    position: relative;
+    overflow: hidden;
+    min-height: 13rem;
+    
+    .rld-btn {
+        position: absolute;
+        left: 50%;
+        top: 10rem;
+        transform: translateX(-50%);
+        font-weight: 800;
+    }
 }

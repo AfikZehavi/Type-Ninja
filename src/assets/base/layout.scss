@@ -11,6 +11,6 @@
   body {
     display: grid;
     grid-template-columns: auto minmax(0,1250px) auto;
-    background: #2F3338;
+    background: $clr-background;
     cursor: default;
   }

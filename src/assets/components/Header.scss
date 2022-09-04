@@ -6,11 +6,36 @@
         gap: 1rem;
     }
 
+    .settings {
+        position: relative;
+    }
+
     .header-btns {
         gap: 1.5rem;
 
         span {
             cursor: pointer;
         }
+    }
+
+
+    .settings-module {
+        position: absolute;
+        background-color: #1a1c1fa9;
+        box-shadow: 0 0 3px 0px black;
+        width: 150px;
+        height: 150px;
+        left: 0.5rem;
+        top: 1.8rem;
+        cursor: default;
+        padding: 10px;
+        transition: all 1s ease-in-out;
+        .time-btn {
+            color: $clr-txt;
+            text-decoration: underline;
+        }
+
+
+        
     }
 }

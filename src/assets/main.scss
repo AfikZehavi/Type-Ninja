@@ -1,5 +1,7 @@
 
 // BASE
+@import './base/helpers.scss';
+@import './base/vars.scss';
 @import './base/layout.scss';
 @import './base/animations.scss';
 
@@ -10,6 +12,8 @@
 @import './components/test-string.scss';
 @import './components/Header.scss';
 @import './components/Footer.scss';
+@import './components/Timer.scss';
+@import './components/Score.scss';
 
 
 

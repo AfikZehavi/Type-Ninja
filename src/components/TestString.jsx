@@ -1,18 +1,16 @@
 import { useEffect, useState } from "react"
 
-const TestString = (props) => {
+const TestString = ({string}) => {
     const [testString, setTestString] = useState([])
 
 
     useEffect(() => {
-        const wordsArray = props.string.map(word => {
+        const wordsArray = string.map(word => {
             const wordSpan = document.createElement('div')
             return wordSpan.innerHTML = word
         })
         setTestString(wordsArray)
-
-
-    }, [props.string])
+    }, [string])
 
 
     return (
