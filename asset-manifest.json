@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Type-Ninja/static/css/main.2f78b255.css",
-    "main.js": "/Type-Ninja/static/js/main.dca9bb72.js",
+    "main.css": "/Type-Ninja/static/css/main.940fa8bf.css",
+    "main.js": "/Type-Ninja/static/js/main.0644ae80.js",
     "index.html": "/Type-Ninja/index.html",
-    "main.2f78b255.css.map": "/Type-Ninja/static/css/main.2f78b255.css.map",
-    "main.dca9bb72.js.map": "/Type-Ninja/static/js/main.dca9bb72.js.map"
+    "main.940fa8bf.css.map": "/Type-Ninja/static/css/main.940fa8bf.css.map",
+    "main.0644ae80.js.map": "/Type-Ninja/static/js/main.0644ae80.js.map"
   },
   "entrypoints": [
-    "static/css/main.2f78b255.css",
-    "static/js/main.dca9bb72.js"
+    "static/css/main.940fa8bf.css",
+    "static/js/main.0644ae80.js"
   ]
 }
